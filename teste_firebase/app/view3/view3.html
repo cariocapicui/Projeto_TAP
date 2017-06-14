@@ -1,0 +1,63 @@
+<div class="form-inline">
+  <div class="form-group">
+    <label for="exampleInputName2">Filtrar</label>
+    <input type="text" class="form-control" placeholder="Filtrar" ng-model="filtro">
+  </div>
+</div>
+
+<br>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Cidade</th>
+      <th>Atração</th>
+      <th>História</th>
+      <th>Excluir</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="evento in eventos|filter:filtro">
+      <td>{{evento.nome}}</td>
+      <td>{{evento.cidade}}</td>
+      <td>{{evento.atracao}}</td>
+      <!--<td id="texto">{{evento.historia}}</td>-->
+      <td><button id="themodal" class="btn btn-danger btn-xs" ng-click="eventos.$remove(Historia)">VER</button> </td>
+      <td><button class="btn btn-danger btn-xs" ng-click="eventos.$remove(evento)">X</button> </td>
+
+    </tr>    
+  </tbody>
+</table>
+
+<form class="form-horizontal" ng-submit="adicionarEvento()">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Nome</label>
+    <div class="col-sm-10">
+      <input class="form-control" placeholder="Nome" ng-model="evento.nome">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Cidade</label>
+    <div class="col-sm-10">
+      <input class="form-control" placeholder="Cidade" ng-model="evento.cidade">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Atração</label>
+    <div class="col-sm-10">
+      <input class="form-control" placeholder="Atração" ng-model="evento.atracao">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">História</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" placeholder="História" ng-model="evento.historia" rows="5"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Adicionar Evento</button>
+    </div>
+  </div>
+</form>
